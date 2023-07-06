@@ -16,10 +16,12 @@
 
 </ul>
 
-<p>
-  Posted by:
-  <%= current_user.email %>
-</p>
+<% if user_signed_in? %>
+  <p>
+    Posted by:
+    <%= current_user.email %>
+  </p>
+<% end %>
 
 <h2>Comments</h2>
 <% @post.comments.each do |comment| %>
