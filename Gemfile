@@ -55,6 +55,10 @@ gem "devise"
 
 gem 'acts_as_votable', '~> 0.11.1'
 
+gem 'simple_form'
+
+gem 'record_tag_helper', '~> 1.0'
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

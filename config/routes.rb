@@ -1,21 +1,12 @@
 Rails.application.routes.draw do
+  resources :comments
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-  
-  root to: "posts#index" 
-
-  get "/posts", to: "posts#index"
-  #get "/posts/:id", to: "posts#show"
-
   resources :posts do
-    member do
-      put "like", to: "posts#upvote"
-      put "dislike", to: "posts#downvote"
-     end
-    resources :comments
+   member do
+    put "like", to: "posts#upvote"
+    put "dislike", to: "posts#downvote"
+   end
+   resources :comments
   end
+root to: 'posts#index'
 end
-
