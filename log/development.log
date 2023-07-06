@@ -10656,3 +10656,679 @@ Searched in:
   
 app/controllers/comments_controller.rb:30:in `block (2 levels) in create'
 app/controllers/comments_controller.rb:25:in `create'
+Started GET "/" for ::1 at 2023-07-06 15:38:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 7874)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 7976)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 2.4ms | Allocations: 15059)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `link' for #<ActionView::Base:0x0000000000ded0>):
+    1: <% @posts.each do |post| %>
+    2:   <div class="link row clearfix">
+    3: <h2>
+    4:         <%= link_to post.title, link %><br>
+    5:         <small class="author">Submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></small>
+    6:     </h2>
+    7: <div class="btn-group">
+  
+app/views/posts/index.html.erb:4
+app/views/posts/index.html.erb:1
+Started GET "/" for ::1 at 2023-07-06 15:39:21 -0400
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  Rendered posts/index.html.erb within layouts/application (Duration: 34.1ms | Allocations: 24916)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 92.2ms | Allocations: 62342)
+Completed 200 OK in 94ms (Views: 87.1ms | ActiveRecord: 6.0ms | Allocations: 63240)
+
+
+Started GET "/posts/3" for ::1 at 2023-07-06 15:39:22 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/show.html.erb:17
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/show.html.erb:22
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/show.html.erb:30
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 31)
+  Rendered posts/show.html.erb within layouts/application (Duration: 33.2ms | Allocations: 26591)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | Allocations: 33036)
+Completed 200 OK in 40ms (Views: 35.0ms | ActiveRecord: 3.5ms | Allocations: 34501)
+
+
+Started POST "/posts/3/comments" for ::1 at 2023-07-06 15:39:25 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"test"}, "commit"=>"Add Comment", "post_id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:22:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:26:in `block in create'
+  [1m[36mComment Create (1.9ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "parentId", "votes", "level", "created_at", "updated_at", "post_id", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["commenter", nil], ["body", "test"], ["parentId", nil], ["votes", nil], ["level", nil], ["created_at", "2023-07-06 19:39:25.176684"], ["updated_at", "2023-07-06 19:39:25.176684"], ["post_id", 3], ["user_id", 1]]
+  ↳ app/controllers/comments_controller.rb:26:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:26:in `block in create'
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 10ms (ActiveRecord: 3.0ms | Allocations: 6696)
+
+
+Started GET "/posts/3" for ::1 at 2023-07-06 15:39:25 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/show.html.erb:17
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/show.html.erb:22
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:5
+  Rendered collection of comments/_comment.html.erb [1 times] (Duration: 1.9ms | Allocations: 2210)
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.5ms | Allocations: 7945)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 14415)
+Completed 200 OK in 16ms (Views: 12.7ms | ActiveRecord: 1.7ms | Allocations: 15202)
+
+
+Started POST "/posts/3/comments" for ::1 at 2023-07-06 15:39:34 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"hello"}, "commit"=>"Add Comment", "post_id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:22:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:26:in `block in create'
+  [1m[36mComment Create (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "parentId", "votes", "level", "created_at", "updated_at", "post_id", "user_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["commenter", nil], ["body", "hello"], ["parentId", nil], ["votes", nil], ["level", nil], ["created_at", "2023-07-06 19:39:34.361647"], ["updated_at", "2023-07-06 19:39:34.361647"], ["post_id", 3], ["user_id", 1]]
+  ↳ app/controllers/comments_controller.rb:26:in `block in create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:26:in `block in create'
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms | Allocations: 3910)
+
+
+Started GET "/posts/3" for ::1 at 2023-07-06 15:39:34 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:7
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/show.html.erb:17
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/show.html.erb:22
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:5
+  Rendered collection of comments/_comment.html.erb [2 times] (Duration: 2.3ms | Allocations: 1776)
+  Rendered posts/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 7371)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 14004)
+Completed 200 OK in 17ms (Views: 13.9ms | ActiveRecord: 1.6ms | Allocations: 14788)
+
+
+Started GET "/" for ::1 at 2023-07-06 15:39:36 -0400
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 13544)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 20966)
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 3.0ms | Allocations: 21238)
+
+
+Started GET "/posts/3/like" for ::1 at 2023-07-06 15:39:37 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/posts/3/like"):
+  
+Started GET "/" for ::1 at 2023-07-06 15:40:21 -0400
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  Rendered posts/index.html.erb within layouts/application (Duration: 38.2ms | Allocations: 20210)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 45.7ms | Allocations: 28013)
+Completed 200 OK in 52ms (Views: 39.7ms | ActiveRecord: 6.8ms | Allocations: 30940)
+
+
+Started GET "/posts/3/like" for ::1 at 2023-07-06 15:40:22 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/posts/3/like"):
+  
+Started GET "/posts/3/dislike" for ::1 at 2023-07-06 15:40:24 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/posts/3/dislike"):
+  
+Started GET "/google.com" for ::1 at 2023-07-06 15:40:42 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/google.com"):
+  
+Started GET "/posts/5/like" for ::1 at 2023-07-06 15:43:20 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/posts/5/like"):
+  
+Started POST "/posts/3/comments" for 127.0.0.1 at 2023-07-06 15:43:55 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"body"=>"test"}, "commit"=>"Add Comment", "post_id"=>"3"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:22:in `create'
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.1ms | Allocations: 8239)
+
+
+  
+ActionView::MissingTemplate (Missing template comments/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/claysmithr/rubyverse/app/views"
+  * "/home/claysmithr/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/devise-4.9.2/app/views"
+  * "/home/claysmithr/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/turbo-rails-1.4.0/app/views"
+  * "/home/claysmithr/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/actiontext-7.0.5/app/views"
+  * "/home/claysmithr/.rbenv/versions/3.2.0/lib/ruby/gems/3.2.0/gems/actionmailbox-7.0.5/app/views"
+):
+  
+app/controllers/comments_controller.rb:30:in `block (2 levels) in create'
+app/controllers/comments_controller.rb:25:in `create'
+Started GET "/posts" for 127.0.0.1 at 2023-07-06 15:43:58 -0400
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  Rendered posts/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 13551)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 20357)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 2.3ms | Allocations: 20630)
+
+
+Started GET "/posts/3" for 127.0.0.1 at 2023-07-06 15:44:00 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/show.html.erb:17
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/show.html.erb:22
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 3]]
+  ↳ app/views/posts/show.html.erb:30
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:5
+  Rendered collection of comments/_comment.html.erb [2 times] (Duration: 3.0ms | Allocations: 2553)
+  Rendered posts/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 8267)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 14684)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 1.4ms | Allocations: 15468)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-06 15:44:04 -0400
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  Rendered posts/index.html.erb within layouts/application (Duration: 18.3ms | Allocations: 13544)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 20364)
+Completed 200 OK in 25ms (Views: 21.8ms | ActiveRecord: 2.4ms | Allocations: 20637)
+
+
+Started GET "/posts/6" for 127.0.0.1 at 2023-07-06 15:44:05 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/show.html.erb:17
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/show.html.erb:22
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 6]]
+  ↳ app/views/posts/show.html.erb:30
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 14)
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 4661)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 11147)
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 1.0ms | Allocations: 11930)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2023-07-06 15:44:08 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/show.html.erb:17
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/show.html.erb:22
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 5]]
+  ↳ app/views/posts/show.html.erb:30
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 4676)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 11094)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 1.2ms | Allocations: 11877)
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2023-07-06 15:44:11 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:9:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:2
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/show.html.erb:17
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/show.html.erb:22
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:27
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1[0m  [["post_id", 1]]
+  ↳ app/views/posts/show.html.erb:30
+  Rendered collection of templates [0 times] (Duration: 0.0ms | Allocations: 13)
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.0ms | Allocations: 4670)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 11087)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 1.3ms | Allocations: 11870)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-07-06 15:44:19 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 716)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2884)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 9396)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 10826)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-07-06 15:44:21 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"clay.smith.r@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "clay.smith.r@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 187ms (ActiveRecord: 0.4ms | Allocations: 3472)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-06 15:44:21 -0400
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  Rendered posts/index.html.erb within layouts/application (Duration: 22.7ms | Allocations: 13545)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | Allocations: 21151)
+Completed 200 OK in 30ms (Views: 25.8ms | ActiveRecord: 3.5ms | Allocations: 21425)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2023-07-06 15:44:25 -0400
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.4ms | Allocations: 1179)
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 2344)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2431)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 4849)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x00000000016378>):
+    3: <%= render "form", post: @post %>
+    4: 
+    5: <div class="form-group">
+    6:         <%= f.label :name %>
+    7:         <%= f.text_field :name, class: "form-control", :autofocus => true %>
+    8:       </div>
+  
+app/views/posts/new.html.erb:6
+Started GET "/posts/new" for 127.0.0.1 at 2023-07-06 15:44:47 -0400
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.4ms | Allocations: 1098)
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 2334)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 2422)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms | Allocations: 4792)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x000000000166c0>):
+    3: <%= render "form", post: @post %>
+    4: 
+    5: <div class="form-group">
+    6:         <%= f.label :name %>
+    7:         <%= f.text_field :name, class: "form-control", :autofocus => true %>
+    8:       </div>
+  
+app/views/posts/new.html.erb:6
+Started GET "/posts/new" for 127.0.0.1 at 2023-07-06 15:44:48 -0400
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.0ms | Allocations: 715)
+  Rendered posts/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1728)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1815)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 3616)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x000000000169e0>):
+    3: <%= render "form", post: @post %>
+    4: 
+    5: <div class="form-group">
+    6:         <%= f.label :name %>
+    7:         <%= f.text_field :name, class: "form-control", :autofocus => true %>
+    8:       </div>
+  
+app/views/posts/new.html.erb:6
+Started GET "/posts/new" for 127.0.0.1 at 2023-07-06 15:45:12 -0400
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.1ms | Allocations: 1098)
+  Rendered posts/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1344)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 8437)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.2ms | Allocations: 10832)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2023-07-06 15:45:14 -0400
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 0.7ms | Allocations: 715)
+  Rendered posts/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 777)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 7228)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 9052)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-06 15:45:15 -0400
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:1
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 3], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 5], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 6], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 1], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/posts/index.html.erb:5
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", true]]
+  ↳ app/views/posts/index.html.erb:12
+  [1m[36mActsAsVotable::Vote Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "votes" WHERE "votes"."votable_id" = $1 AND "votes"."votable_type" = $2 AND "votes"."vote_flag" = $3[0m  [["votable_id", 2], ["votable_type", "Post"], ["vote_flag", false]]
+  ↳ app/views/posts/index.html.erb:17
+  Rendered posts/index.html.erb within layouts/application (Duration: 17.7ms | Allocations: 13864)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:15
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 21299)
+Completed 200 OK in 24ms (Views: 20.7ms | ActiveRecord: 3.1ms | Allocations: 21626)
+
+
