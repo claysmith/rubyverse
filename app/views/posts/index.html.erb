@@ -6,12 +6,12 @@
     </h2>
 <div class="btn-group">
       <a class="btn btn-default btn-sm" href="<%= post.url %>">Visit Link</a>
-      <%= link_to like_post_path(post), method: :put, class: "btn btn-default btn-sm" do %>
+      <%= button_to like_post_path(post), method: :put, class: "btn btn-default btn-sm" do %>
       <span class="glyphicon glyphicon-chevron-up"></span>
       Upvote
       <%= post.get_upvotes.size %>
       <% end %>
-      <%= link_to dislike_post_path(post), method: :put, class: "btn btn-default btn-sm" do %>
+      <%= button_to dislike_post_path(post), method: :put, class: "btn btn-default btn-sm" do %>
       <span class="glyphicon glyphicon-chevron-down"></span>
       Downvote
       <%= post.get_downvotes.size %>
