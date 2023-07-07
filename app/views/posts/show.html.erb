@@ -1,13 +1,13 @@
 <div class="page-header">
  <h1><a href="<%= @post.url %>"><%= @post.title %></a><br> <small>Submitted by <%= @post.user.email %></small></h1>
 </div>
-<div class="btn-group">
+<div class="btn-group" style="float:left;">
  <%= link_to 'Visit URL', @post.url, class: "btn btn-primary" %>
 </div>
 <% if @post.user == current_user %>
- <div class="btn-group">
+ <div class="btn-group" style="display:flex">
   <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-default" %>
-  <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+  <%= button_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
  </div>
 <% end %>
 <div class="btn-group pull-right" style="display:flex">
